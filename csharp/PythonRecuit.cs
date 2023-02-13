@@ -42,6 +42,7 @@ namespace Sudoku.Recuit
                 return new Shared.SudokuGrid() { Cells = managedResult };
             }
         }
+        
     }
 
         public class PythonRecuitSimaneal : PythonSolverBase
@@ -75,10 +76,10 @@ namespace Sudoku.Recuit
                 return new Shared.SudokuGrid() { Cells = managedResult };
             }
         }
+        
 
 
 
-       
 
     }
 
