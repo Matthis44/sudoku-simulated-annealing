@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Z3" Version="4.8.12" />
+		<PackageReference Include="pythonnet" Version="3.0.0-preview2022-01-03" />
+	
+  
+	
+		<Reference Include="Sudoku.Shared">
+			<HintPath>..\Sudoku.Shared\obj\Debug\net7.0\Sudoku.Shared.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Sudoku.Z3Solvers\Sudoku.Z3Solvers.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	
+</Project>
