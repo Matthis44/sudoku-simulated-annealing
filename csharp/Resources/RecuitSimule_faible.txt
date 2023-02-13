@@ -1,0 +1,68 @@
+import random
+import numpy as np
+
+grid = np.array([[int(i) for i in line] for line in sudoku])
+
+def random_swap(grid, temperature):
+    row, col = np.where(grid == 0)
+    indices = list(zip(row, col))
+    i, j = random.choice(indices)
+    values = list(range(1, 10))
+    random.shuffle(values)
+    for value in values:
+        grid[i, j] = value
+        if is_valid(grid):
+            delta_e = calculate_energy(grid)
+            if random.random() < np.exp(-delta_e / temperature):
+                return grid
+        grid[i, j] = 0
+    return grid
+
+def is_valid(grid):
+    for i in range(9):
+        for j in range(9):
+            if grid[i, j] == 0:
+                continue
+            for k in range(9):
+                if k != j and grid[i, k] == grid[i, j]:
+                    return False
+                if k != i and grid[k, j] == grid[i, j]:
+                    return False
+            i0, j0 = 3 * (i // 3), 3 * (j // 3)
+            for ii in range(3):
+                for jj in range(3):
+                    if i0 + ii != i and j0 + jj != j and grid[i0 + ii, j0 + jj] == grid[i, j]:
+                        return False
+    return True
+
+def calculate_energy(grid):
+    energy = 0
+    for i in range(9):
+        for j in range(9):
+            if grid[i, j] == 0:
+                continue
+            for k in range(9):
+                if k != j and grid[i, k] == grid[i, j]:
+                    energy += 1
+                if k != i and grid[k, j] == grid[i, j]:
+                    energy += 1
+            i0, j0 = 3 * (i // 3), 3 * (j // 3)
+            for ii in range(3):
+                for jj in range(3):
+                    if i0 + ii != i and j0 + jj != j and grid[i0 + ii, j0 + jj] == grid[i, j]:
+                        energy += 1
+    return energy
+
+def solve(grid, temperature, cooling_rate):
+    while temperature > 1e-100:
+        grid = random_swap(grid, temperature)
+        temperature *= cooling_rate
+    return grid
+
+
+temperature = 1000
+cooling_rate = 0.95
+grid = solve(grid, temperature, cooling_rate)
+ 
+    
+sol=grid.tolist()

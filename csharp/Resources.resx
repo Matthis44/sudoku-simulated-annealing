@@ -124,6 +124,9 @@
   <data name="RecuitSimaneal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\RecuitSimaneal.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="RecuitSimule_faible" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\RecuitSimule_faible.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="sudoku" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\sudoku.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

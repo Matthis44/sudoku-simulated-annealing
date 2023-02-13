@@ -118,6 +118,31 @@ namespace Sudoku.Recuit {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à import random
         ///import numpy as np
+        ///
+        ///grid = np.array([[int(i) for i in line] for line in sudoku])
+        ///
+        ///def random_swap(grid, temperature):
+        ///    row, col = np.where(grid == 0)
+        ///    indices = list(zip(row, col))
+        ///    i, j = random.choice(indices)
+        ///    values = list(range(1, 10))
+        ///    random.shuffle(values)
+        ///    for value in values:
+        ///        grid[i, j] = value
+        ///        if is_valid(grid):
+        ///            delta_e = calculate_energy(grid)
+        ///            if random.random() &lt; np.exp(-delta_e / temperature):
+        ///              [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        internal static string RecuitSimule_faible {
+            get {
+                return ResourceManager.GetString("RecuitSimule_faible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à import random
+        ///import numpy as np
         ///import math 
         ///from random import choice
         ///import statistics 
